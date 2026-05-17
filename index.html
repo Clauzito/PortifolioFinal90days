@@ -6,39 +6,120 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Final Project</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Syne:wght@400..800&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
+    <!-- header e nav -->
     <header>
-        <h1>Welcome</h1>
-
+        <div class="logo-header"> claudecir.nunes <span class="accent-logo" style="color: var(--muted);">( )</span>
+        </div>
         <nav>
             <ul>
-                <li><a href="#">HOME</a></li>
-                <li><a href="#">PROJECTS</a></li>
-                <li><a href="#">ABOUT</a></li>
-                <li><a href="#">CONTACT</a></li>
+                <li><a href="#hero">HOME</a></li>
+                <li><a href="#projects">PROJECTS</a></li>
+                <li><a href="#about">ABOUT</a></li>
+                <li><a href="#contacts">CONTACT</a></li>
             </ul>
         </nav>
     </header>
-
-    <main>
-        <section>
-            <div class="h2-section">
-                <h2>Welcome to the my Portifolio.</h2>
+    <main> <!-- Main para a page toda -->
+        <section id="hero"> <!-- sesão do hero usa a pagina toda-->
+            <div class="hero-container-text"> <!-- Esse e o primeiro div onde esta a parte do hero em texto.-->
+                <div class="hero-tag">
+                    <!-- Essa div pai e para o disponivel para estagio para centralizar apenas a boxPai-->
+                    <div class="tag-dot"></div> <!-- Essa div e onde vou estilizar o codigo.-->
+                    Disponivel para estágio · 2026
+                </div>
+                <h1 class="hero-name"> <!-- Aqui vou estelizar meu nome-->
+                    <span>Claudecir</span> <!-- Usei span para poder estilizar apenas essa linha individual sem mecher no restante 
+                    começo o linear gradiente aqui em branco e vou ate o "nunes" terminando em azul-->
+                    <span class="line2">Nunes</span> <!-- USei span para estelizar esse linha separada.
+                    Vou dar uma cor gradient em 120deg mais ou menos e termino aqui o linear gradient em azul -->
+                </h1>
+                <p class="hero-sub"> <!-- Aqui é o texto sobre o que estou aprendendo -->
+                    Desenvolvedor frontend em formação, <strong>90 dias construindo do zero</strong> — HTML, CSS,
+                    JavaScript e em breve React. Apaixonado por transformar código em experiências reais.
+                </p>
+                <!-- cta ! call to action - row . (fade-up = ANIMAçÃO) [delay-3 atraso na animação] -->
+                <div class="cta-row">
+                    <!-- uma caixa para receber o Bttn primary e o a link 
+                    consigo estelizar a div PAI, e dentro so filhos button e a:link. -->
+                    <button class="btn-primary">Ver projetos</button>
+                    <a href="#contacts" class="btn-ghost">Entre em contato</a>
+                </div>
+                <div class="hero-stats">
+                    <!-- Container Pai usado para ter os Filhos "Statistcs " nnumeros de dia codando, quantos projetos prontos, e 100% comprometido. -->
+                    <div>
+                        <div class="stat-numb">14</div> <!-- recebe a class stat-numb para ser estelizado por iguais-->
+                        <div class="stat-label">Dias codando</div>
+                    </div>
+                    <div>
+                        <div class="stat-numb">3</div>
+                        <div class="stat-label">Projetos entregues</div>
+                        <!-- recebe a class "stat-label" para ser estiliza iguais.-->
+                    </div>
+                    <div>
+                        <div class="stat-numb">100%</div>
+                        <div class="stat-label">comprometido</div>
+                    </div>
+                </div>
             </div>
-        </section>
 
-        <aside>
-            <div class="photosmile">
-                <input type="image" src="./images/photosmiling.jpeg" alt="#" class="photosmiling">
+            <div class="hero-visual"> <!-- aqui é a box pai do COED WINDOW. -->
+                <div class="code-window"> <!-- Aqui éo container Pai que vai receber todo codigo a seguir.-->
+                    <div class="window-bar"> <!-- Essa div cuida da nav bar da code-window -->
+                        <div class="dot d-red"></div> <!-- botao redondo vermelho -->
+                        <div class="dot d-yellow"></div><!-- botao redondo amarelo -->
+                        <div class="dot d-green"></div><!-- botao redondo verde-->
+                        <span class="window-tittle">portifolio.js</span>
+                        <!-- " meio que um titulo na nav bar do code window"-->
+                    </div>
+                    <div class="window-body"> <!-- container body do code-window. usado para todo codigo a seguir-->
+                        <div><span class="c-purple">const</span> <span class="c-blue">dev</span> = {</div>
+                        <!-- div e span com class para serem estelizados no CSS-->
+                        <div>&nbsp;&nbsp;<span class="c-green">nome</span>: <span class="c-orange">"Claudecir"</span>,
+                        </div> <!-- O "&nbsp;" é usado para dar espaçamento dentro do html-->
+                        <div>&nbsp;&nbsp;<span class="c-green">foco</span>: <span class="c-orange">"Frontend"</span>,
+                        </div>
+                        <div>&nbsp;&nbsp;<span class="c-green">stack</span>: [</div>
+                        <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="c-orange">"HTML"</span>, <span
+                                class="c-orange">"CSS"</span>,</div>
+                        <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="c-orange">"JavaScript"</span></div>
+                        <div>&nbsp;&nbsp;],</div>
+                        <div>&nbsp;&nbsp;<span class="c-green">disponivel</span>: <span class="c-purple">true</span>,
+                        </div>
+                        <div>&nbsp;&nbsp;<span class="c-green">motivacao</span>: <span class="c-orange">"∞"</span></div>
+                        <div>}</div>
+                        <br>
+                        <div><span class="c-gray">// em aprendizado constante</span></div>
+                        <div><span class="c-blue">dev</span>.<span class="c-green">aprender</span>(<span
+                                class="c-orange">"React"</span>)</div>
+                    </div>
+                </div>
             </div>
-        </aside>
+        </section> <!-- Fim da primeira parte no caso HERO-->
+        <section id="projects">PROJECTS</section>
+        <section id="about">ABOUT</section>
+        <section id="contacts">CONTACTS</section>
     </main>
-
-    <footer>
-        <p>&copy; 2026 - Portifolio !</p>
-    </footer>
+    <div>
+        <footer>
+            <div class="footer-text">&copy; 2026 <span class="footer-accent">Claudecir - </span> Feito com HTML, CSS
+                & força de vontade.
+            </div>
+            <div class="footer-text">Dia <span class="footer-accent">13</span> de 90.
+            </div>
+        </footer>
+    </div>
 </body>
 
 </html>

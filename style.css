@@ -3,83 +3,216 @@
     padding: 0;
     box-sizing: border-box;
 }
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 4.5rem; /* ISSO evita que o scroll vai para De BAIXO do header 
+    REM significa "root em, ou seja. E relativo ao tamanho da fontedo html*/
+
+}
+:root {
+    /* É um seletor especial, ele age dentro do HTML. quando defino variaveis que nem fiz abaixo. Para usar essas variaveis preciso usar background-color: var(--nome da variavel)*/
+    --bg: #0a0a0f;
+    /*Cor do fundo principal */
+    --surface: #13131a;
+    /* Cor da superficie, acima do fundo, como CARDS, PAINEIS, MODAIS*/
+    --border: #1e1e2e;
+    /* Cor da borda, linhas.*/
+    --accent: #00f5a0;
+    /* Cor de destaque principal, BOTOES, LINKS IMPORTANTES E ELEMENTOS CHAMATIVOS.*/
+    --accent2: #7c3aed;
+    /*Segunda cor destaque, usada para variações ou elementos secundarios.*/
+    --text: #f0f0f0;
+    /* Cor principal do texto */
+    --muted: #666680;
+    /* Cor de texto ou elementos menos importantes (legendas e placeholders)*/
+    --card: #16161f;
+    /* Cor para Cartoões ou blocos do conteudo.Pouco diferente da surface, usada para o contraste.*/
+}
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 18px;
-    background-color: rgba(43, 42, 42, 0.719);
-    color: whitesmoke;
+    font-family: 'Syne', sans-serif;
+    background-color: var(--bg);
+    /*uso a variavel global para o fundo da page*/
+    color: var(--text);
+    /*Uso a variavel global para o texto da page*/
+    min-height: 100vh;
+    /* overflow-x: hidden ;  Ainda não sei para que serve.*/
 }
 
 header {
+    position:fixed; /* deixa o header fixo*/ 
+    top:0; /* top left right faz que ele fica fixo nesssas posiçoes e apenas " va para baixo " sem afertar left top e right. */
+    left:0;
+    right:0;
+    z-index:100;  /* Usado para deixar a nav bar fixa no top porem ainda não aprendi vou aprender hoje. */
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    padding: 20px;
+    padding: 18px 48px;
+    /* 1.2rem 3rem;  para dar um espaçamento dentro da box em REM melhor para responsividade. cada "1rem" equivale a 16px */
+    background: rgba(10, 10, 15, 0.8);
+    /*Usado para deixar o fundo com a cor mais transparente*/
+    backdrop-filter: blur(12px);
+    /*usado para aplicar um efeito vidro no header */
+    border-bottom: 1px solid var(--border);
+    /* Usado para colocar uma borda, ja com a variavel de cor border.*/
+    z-index: 100; /* Usado para ficar sempre em cima do conteúdo */
 }
-
-h1 {
-    transition: transform 0.3s ease, color 0.3s ease;
+/* Evita que o conteudo fique por baixo do header*/
+main {
+    padding-top: 4.5rem; /* 5 rem é equivalente a 80px - E ele ajusta a alutra do conteudo para nao ficar embaixo no header.*/ 
 }
-
-h1:hover {
-    transform: scale(1.1);
-    color: rgb(20, 20, 90);
+.logo-header {
+    font-family: 'Space Mono', monospace;
+    font-size: 1rem;
+    color: var(--accent);
+    letter-spacing: 1px;
+    /* 0.05em;  Usado para espaçamento das letras "em" vou ver mais a frente. */
 }
 
 nav ul {
     display: flex;
-    gap: 30px;
+    gap: 32px;
+    /* 2rem; USADO PARA ESPAÇAMENTO ENTRE ITENS - CADA 1 REM EQUIVALE A 16PX*/
     list-style: none;
 }
 
 nav a {
     text-decoration: none;
-    color: whitesmoke;
-    transition: transform 0.3s ease, color 0.3s ease;
+    color: var(--muted);
+    /* TIRA A COR DO NAV A deixando " mutado" */
+    transition: transform 0.3s ease, color 0.2s ease;
+    letter-spacing: 1px;
+    /* 0.1em; EM usado em medidas mais curta, acima de 1 usa rem que equivale a 16px e melhor para responsividade.*/
     display: block;
 }
 
-nav a:hover  {
-   color: rgb(20, 20, 90);
-   transform: scale(1.2);
+nav a:hover {
+    color: var(--accent);
+    transform: scale(1.2);
 }
 
-main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+#hero {
     min-height: 100vh;
-    min-width: 100%;
-}
-
-section {
-    flex: 2;
-}
-
-.h2-section { 
-    text-align: center;
-}
-
-aside {
     display: flex;
     align-items: center;
-    flex: 1; 
+    padding: 8rem 3rem 4rem; /* Cada 1rem equivale a 16px. 8x16= 128px TOP, 3x16= 48px LEFT RIGHT , 4x16= 64px BOTTOM*/
+    max-width:1100px;/* não deixa que o conteude ultrapasse 1100px, mas ainda fica bom para responsividade.*/
+    margin:0 auto; /* 0= sem margem em cima/baixo / auto= o CSS calcula a distancia dos lados centralizando o conteudo*/
+}
+.hero-container{flex: 1;}
+.hero-tag{
+  display:inline-flex; /*Inline se comporta como elemento em linha dentro do pai "hero-container" e o "flex" permite que os filhos da "hero-tag" sejam alinhados facimente usando "align-items, gap, justify-content.*/ 
+  align-items:center;
+  gap:0.5rem; /*MEtade de 1rem que equivale a 8px pela metade. 1rem equivale a 16px*/
+  font-family:'Space Mono',monospace;
+  font-size:0.75rem; /* 0.75rem= 12px fixa relativa a raiz */
+  color:var(--accent);
+  letter-spacing:0.15em; /* EM significa relativo ao tamanho da fonte do proprio elemento pai. se a div tem 16px e defino um padding de 0.5em quer dizer que meu padding tem 8px. e se tiver outro elemento com propriedade diferente por exemplo 20px o em vai ser relativo aos 20px tbm, sendo assim 10px em 0.5em*/
+  text-transform:uppercase;
+  margin-bottom:1.5rem;
+}
+.tag-dot {
+    width: 8px; height: 8px;
+    background-color: var(--accent);
+    border-radius: 50%;
+    animation: blink 1.5s infinite;
+}
+/* ANIMAÇÃO PARA A BOLINHA FICAR TIPO PISCANDO " TIPO LIGADO E APAGADO*/
+@keyframes blink {0%,100%{opacity:1}50%{opacity: 0.2}
+    
+}
+.hero-name {
+  font-size:clamp(3rem,8vw,6rem); /*Deixa meu nome " grande "*/
+  font-weight:800;line-height:0.95; /*da estilo ao meu nome */
+  margin-bottom:1rem; /* Da espaçamento */
+}
+.hero-name span {
+    display: block;
+    background: linear-gradient(135deg,#fff 30%,var(--accent)); /* temos o linear em todo block, para isso vamos usar o webkit em seguida para definir apenas no nome.*/
+    -webkit-background-clip:text; /*Diz que o linear gradiente vai ser apenas no TEXTO*/ -webkit-text-fill-color:transparent; /* Deixa apenas no nome*/
+}
+/* deixamos um efeito graddiente mais escura no NUNES dando um esfuado de cores mais bonita.*/
+.hero-name .line2{
+  background:linear-gradient(135deg,var(--accent) 0%,var(--accent2));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+.hero-sub {
+    font-size: 1.2rem;
+    color: var(--muted);
+    max-width: 400px; /*Independente da tela vai nao vai passar de 400px*/
+    line-height: 1.7; /*Espalamento de cada linha de 1.7*/
+    margin-bottom: 40px;/*2.5rem;  Espaçamento botton em 2.5remx16px= 40px*/
+}
+.hero-sub strong {
+    color: var(--text); /* transforma texto " strong" em branco*/
+}
+.cta-row {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+.btn-primary {
+    padding: 14px 32px;
+    background-color: var(--accent);
+    color: #000;
+    border: none;
+    border-radius: 4px;
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s ;
+}
+.btn-primary:hover {
+    transform: scale(1.04);
+    box-shadow: 0 8px 24px rgba(0,245,160,0.3);
+}
+.btn-ghost {
+    padding: 15px 32px;
+    background:transparent;
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: border-color 0.2s , color 0.2s;
+    text-decoration: none;
+    display: inline-block;
+}
+.btn-ghost:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+#projects {
+    min-height: 100vh;
 }
 
-.photosmiling {
-    width: 300px;
-    height: 250px;
-    border-radius: 50% 10px;
-    transition: transform 0.3s ease;
+#about {
+    min-height: 100vh;
 }
 
-.photosmiling:hover {
-    transform: scale(1.05);
-    box-shadow: 0 1px 15px rgba(20, 20, 90, 1);
+#contacts {
+    min-height: 100vh;
 }
-footer { 
-    text-align: center;
-    font-size: 20px;
-    margin-bottom: 30px;
+
+footer {
+    display: flex;
+    font-size: 1rem;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 300;
+    padding: 2rem 3rem;
+    /* cada 1rem e igual a 16px*/
+    border-top: 1px solid var(--border);
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.footer-accent {
+    color: var(--accent);
 }
